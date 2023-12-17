@@ -1,13 +1,11 @@
 package com.example.Mobi_Market.controller;
 
 
-import com.example.Mobi_Market.dto.ImageDto;
 import com.example.Mobi_Market.dto.ProductDto;
 import com.example.Mobi_Market.dto.ProductResponse;
-import com.example.Mobi_Market.service.ImageService;
 import com.example.Mobi_Market.service.ProductService;
 import io.swagger.annotations.Api;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,22 +14,15 @@ import static com.example.Mobi_Market.configuration.SwaggerConfig.PRODUCT;
 
 
 @Api(tags = PRODUCT)
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/product")
-public class
-ProductController {
+public class ProductController {
     private final ProductService productService;
-    private final ImageService imageService;
     @PostMapping("/save")
     //,@RequestPart MultipartFile file
     public ProductDto saveProduct(@RequestBody ProductDto productDto){
         return productService.saveProduct(productDto);
-    }
-
-    @PostMapping("/upload")
-    public Long uploadPhoto(@RequestBody ImageDto imageDto){
-        return imageService.uploadPhoto(imageDto);
     }
 
     @PutMapping("/update/{id}")
