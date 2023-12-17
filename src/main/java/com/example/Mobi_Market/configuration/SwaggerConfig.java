@@ -19,6 +19,8 @@ public class SwaggerConfig {
     public static final String USER = "Пользователь";
     public static final String AUTH = "Авторизация";
 
+    public static final String PRODUCT = "Продукты";
+
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -30,7 +32,8 @@ public class SwaggerConfig {
                 .build()
 
                 .tags(new Tag(USER,""))
-                .tags(new Tag(AUTH,""));
+                .tags(new Tag(AUTH,""))
+                .tags(new Tag(PRODUCT,""));
 
     }
 

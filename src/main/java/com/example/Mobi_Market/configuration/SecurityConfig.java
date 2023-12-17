@@ -79,12 +79,12 @@ public class SecurityConfig {
                 .permitAll()
 
 //                .antMatchers("/product/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.GET,"/product/**").hasAnyRole("USER", "ADMIN")
-                .antMatchers(HttpMethod.POST,"/product/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.PUT,"/product/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.DELETE,"/product/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET,"/product/**").hasAnyRole("USER")
+                .antMatchers(HttpMethod.POST,"/product/**").hasRole("USER")
+                .antMatchers(HttpMethod.PUT,"/product/**").hasRole("USER")
+                .antMatchers(HttpMethod.DELETE,"/product/**").hasRole("USER")
 
-                .antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.PUT,"/user/update").hasAnyRole("USER")
 
                 .anyRequest()
                 .authenticated()

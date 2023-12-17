@@ -68,7 +68,10 @@ public class UserServiceImpl implements UserDetailsService {
         User user = this.userRepository.findById(id)
                 .orElseThrow(() -> new RecordNotFoundException("Пользователя с таким id не существует!"));
         user.setEmail(userDto.getEmail());
-        user.setPassword(userDto.getPassword());
+        user.setSurname(userDto.getSurname());
+        user.setName(userDto.getName());
+        user.setBirthdayDay(userDto.getBirthdayDay());
+        user.setPhoneNumber(user.getPhoneNumber());
         return UserMapper.INSTANCE.toDTO(user);
     }
 

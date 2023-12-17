@@ -4,6 +4,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Collection;
 
 @NoArgsConstructor
@@ -22,6 +23,10 @@ public class User {
     String password;
     @Column
     String username;
+    String surname;
+    String name;
+    LocalDate birthdayDay;
+    String phoneNumber;
 
     @ManyToMany
     @JoinTable(
