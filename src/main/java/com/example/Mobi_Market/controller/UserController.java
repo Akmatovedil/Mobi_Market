@@ -19,12 +19,6 @@ public class UserController {
 
     private final UserServiceImpl userServiceImpl;
 
-    @PostMapping("/save")
-    public UserDto saveUser(@RequestBody UserDto userDto) {
-
-        return userServiceImpl.saveUser(userDto);
-    }
-
     @PutMapping("/update")
     public UserDto updateUser(@RequestBody UserDto userDto, @PathVariable long id) {
         return userServiceImpl.updateUser(userDto, id);
