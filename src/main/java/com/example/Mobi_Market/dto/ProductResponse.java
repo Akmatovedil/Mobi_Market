@@ -14,7 +14,6 @@ import lombok.experimental.FieldDefaults;
 public class ProductResponse {
     Long id;
     Double price;
-    Image image;
     String description;
 
 }

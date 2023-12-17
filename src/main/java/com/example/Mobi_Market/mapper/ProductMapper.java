@@ -18,13 +18,9 @@ import java.util.List;
 public interface ProductMapper {
     ProductMapper INSTANCE = Mappers.getMapper(ProductMapper.class);
 
-    @Mapping(target = "image",
-            expression = "java(productDto.getImageId() == null ?" +
-                    "null :" +
-                    "new com.example.onlineshop.entity.Image(productDto.getImageId(),null,null,null))")
+
     Product toEntity(ProductDto productDto);
 
-    @Mapping(target = "imageId", source = "image.id")
     ProductDto toDTO(Product product);
 
     List<ProductDto> toDTOList(List<Product> productList);
@@ -33,10 +29,6 @@ public interface ProductMapper {
 
     List<ProductResponse> toResponseList(List<Product> productList);
 
-    @Mapping(target = "image",
-            expression = "java(productDto.getImageId() == null ?" +
-                    "product.getImage() :" +
-                    "new com.example.onlineshop.entity.Image(productDto.getImageId(),null,null,null))")
     void update(@MappingTarget Product product, ProductDto productDto);
 
 }

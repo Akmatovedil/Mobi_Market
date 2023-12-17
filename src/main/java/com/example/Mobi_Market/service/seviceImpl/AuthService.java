@@ -40,7 +40,7 @@ public class AuthService {
     }
 
     public ResponseEntity<?> createNewUser(@RequestBody RegistrationUserDto registrationUserDto){
-        if (userRepository.findByUsername(registrationUserDto.getUsername()).isPresent()){
+        if (userRepository.findByUsername(registrationUserDto.getUsername()).isPresent() && userRepository.findByEmail(registrationUserDto.getEmail()).isPresent()){
             return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "Пользователь с таким именем уже существует"),HttpStatus.BAD_REQUEST);
         }
         User user = userService.createNewUser(registrationUserDto);

@@ -11,8 +11,6 @@ import lombok.experimental.FieldDefaults;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ProductDto {
-    Long id;
     Double price;
-    Long imageId;
     String description;
 }
